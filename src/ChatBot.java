@@ -4,7 +4,7 @@ public class ChatBot {
         getGreeting();
         String name = getName();
         repeatName();
-        int age = getAge(name);
+        getAge(name);
         countToNumber();
         getQuestion();
     }
@@ -29,8 +29,12 @@ public class ChatBot {
     public static int getAge(String name) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Time to guess your age! Tell me a number and I'll try a guess.");
-        int number = scanner.nextInt();
-        int ageGuess = number * 8 / 2;
+        int num1 = scanner.nextInt();
+        System.out.println("Okay give me your favorite number.");
+        int favNum = scanner.nextInt();
+        System.out.println("Okay give me your least favorite number.");
+        int leastFavNum = scanner.nextInt();
+        int ageGuess = num1 * 8 / 2 + favNum - leastFavNum;
         System.out.println(name + ", I think you are " + ageGuess + " years old.");
         return ageGuess;
     }
@@ -56,7 +60,7 @@ public class ChatBot {
 
         do {
             System.out.print("Enter the answer A, B, C, or D");
-            userAnswer = scanner.nextLine().toUpperCase(); //makes sure user input is not case sensitive
+            userAnswer = scanner.nextLine().toUpperCase(); //makes sure user input is not case-sensitive
         } while (!userAnswer.equals("B"));
 
         System.out.println("Finally! You got it right!");
